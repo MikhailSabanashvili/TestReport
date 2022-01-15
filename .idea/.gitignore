@@ -6,3 +6,10 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+vcs.xml
+compiler.xml
+misc.xml
+jarRepositories.xml
+uiDesigner.xml
+.gitignore
+
