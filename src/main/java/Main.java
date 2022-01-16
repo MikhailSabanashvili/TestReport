@@ -1,10 +1,7 @@
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.opc.PackagePartCollection;
-import utils.CalculateTransaction;
-import utils.CollectionHandler;
-import utils.MapCreator;
-import utils.XlsReader;
+import utils.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +31,13 @@ public class Main {
         //сортировка
         @SuppressWarnings("unchecked")
         TreeMap<String, ArrayList<Double>> excel =  (TreeMap<String, ArrayList<Double>>) CollectionHandler.sortMap(excelSheet);
+        @SuppressWarnings("unchecked")
+        TreeMap<String, Double> avgTree = (TreeMap<String, Double>) CollectionHandler.sortMap(avgMap);
+        @SuppressWarnings("unchecked")
+        TreeMap<String, Double> percentileTree = (TreeMap<String, Double>) CollectionHandler.sortMap(percentileMap);
+
+        //упаковываем все расчеты в объект
+        Report report = new Report(avgTree, percentileTree);
 
 
         System.out.println();
