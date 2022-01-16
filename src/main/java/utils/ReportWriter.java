@@ -12,7 +12,8 @@ public class ReportWriter {
             writer.write("Имя транзакции       " + "Среднее значение       " + "90й перцентиль");
             writer.write(System.getProperty("line.separator"));
             for (Transaction transaction: report.getTransactions()) {
-                writer.write(transaction.getTransaction() + "  " + transaction.getAvg() + "  " + transaction.getPercentile());
+                writer.write(transaction.getTransaction() + "              "
+                        + transaction.getAvg() + "            " + transaction.getPercentile());
                 writer.write(System.getProperty("line.separator"));
             }
         } catch (IOException ioException) {
