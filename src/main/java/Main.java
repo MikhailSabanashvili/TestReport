@@ -1,5 +1,6 @@
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import utils.CalculateTransaction;
 import utils.CollectionHandler;
 import utils.MapCreator;
 import utils.XlsReader;
@@ -15,9 +16,15 @@ public class Main {
 
         //собираем мапу из названий колонок
         HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet, new HashMap<>());
+
         //парсинг эксельника в коллекцию
         HashMap<String, ArrayList<Double>> excelSheet = MapCreator.createExcelSheetHashMap(sheet, nameCols, new HashMap<>());
+
+        //удаляем мэйновые транзакции
         excelSheet = CollectionHandler.deleteMainTransaction(excelSheet);
+
+        //считаем avg
+        HashMap<String, Double> avgMap = CalculateTransaction.calculateAvg(excelSheet);
 
         //TODO: реализовать рассчет по транзакциям
         System.out.println();
