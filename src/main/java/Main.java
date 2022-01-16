@@ -41,5 +41,6 @@ public class Main {
         Report report = new Report(avgTree, percentileTree);
         //пишем в файл
         ReportWriter.writeToTxt(report, path);
+        ReportWriter.writeToXls(report, path);
     }
 }
