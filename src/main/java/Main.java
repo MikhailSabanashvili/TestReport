@@ -26,6 +26,9 @@ public class Main {
         //считаем avg
         HashMap<String, Double> avgMap = CalculateTransaction.calculateAvg(excelSheet);
 
+        //считаем 90Perc
+        HashMap<String, Double> percentileMap = CalculateTransaction.calculate90Perc(excelSheet);
+
         //TODO: реализовать рассчет по транзакциям
         System.out.println();
     }
