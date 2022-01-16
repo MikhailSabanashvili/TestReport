@@ -13,8 +13,10 @@ public class Report {
         Iterator<Map.Entry<String, Double>> iteratorPerc = percentileTree.entrySet().iterator();
         while (iteratorAvg.hasNext() && iteratorPerc.hasNext()) {
             Map.Entry<String, Double> entry = iteratorPerc.next();
-            if(entry.getKey().contains("Percent of Transactions"))
+            if(entry.getKey().contains("Percent of Transactions")) {
+                iteratorAvg.next();
                 continue;
+            }
             transactions.add(new Transaction(iteratorAvg.next().getValue(), entry.getValue(), entry.getKey()));
         }
     }
