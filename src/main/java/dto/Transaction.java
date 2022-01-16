@@ -4,6 +4,7 @@ public class Transaction {
     private Double avg;
     private Double percentile;
     private String transaction;
+    public static final int classFieldCount = 3;
 
     public Transaction(Double avg, Double percentile, String transaction) {
         this.avg = avg;
