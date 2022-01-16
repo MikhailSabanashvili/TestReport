@@ -1,5 +1,6 @@
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.opc.PackagePartCollection;
 import utils.CalculateTransaction;
 import utils.CollectionHandler;
 import utils.MapCreator;
@@ -7,6 +8,7 @@ import utils.XlsReader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 
 public class Main {
@@ -29,7 +31,11 @@ public class Main {
         //считаем 90Perc
         HashMap<String, Double> percentileMap = CalculateTransaction.calculate90Perc(excelSheet);
 
-        //TODO: реализовать рассчет по транзакциям
+        //сортировка
+        @SuppressWarnings("unchecked")
+        TreeMap<String, ArrayList<Double>> excel =  (TreeMap<String, ArrayList<Double>>) CollectionHandler.sortMap(excelSheet);
+
+
         System.out.println();
     }
 }
