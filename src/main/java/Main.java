@@ -10,7 +10,8 @@ import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-        HSSFWorkbook workbook = XlsReader.loadBook("C:\\Users\\USER\\Desktop\\Report4.xls");
+        String path = "C:\\Users\\USER\\Desktop\\";
+        HSSFWorkbook workbook = XlsReader.loadBook(path + "Report4.xls");
         HSSFSheet sheet= workbook.getSheetAt(0);
 
         //собираем мапу из названий колонок
@@ -38,8 +39,7 @@ public class Main {
 
         //упаковываем все расчеты в объект
         Report report = new Report(avgTree, percentileTree);
-
-
-        System.out.println();
+        //пишем в файл
+        ReportWriter.writeToTxt(report, path);
     }
 }
