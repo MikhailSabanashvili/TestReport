@@ -13,6 +13,12 @@ public class CollectionHandler {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
+    public static HashMap<String, ArrayList<Integer>> deleteMainT(HashMap<String, ArrayList<Integer>> excelSheet) {
+        return (HashMap<String, ArrayList<Integer>>) excelSheet.entrySet().stream()
+                .filter(s -> !s.getKey().contains("MAIN"))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     public static HashMap<Integer, String> deleteEmptyCols(HashMap<Integer, String> map) {
         return (HashMap<Integer, String>) map.entrySet().stream()
                 .filter(s -> !s.getValue().equals(""))

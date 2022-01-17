@@ -40,4 +40,31 @@ public class MapCreator {
 
         return excelSheet;
     }
+
+    public static HashMap<String, ArrayList<Integer>> createExcelSheetHM(HSSFSheet sheet, HashMap<String, ArrayList<Integer>> excelSheet) {
+        ArrayList<String> transactions = new ArrayList<>();
+        ArrayList<Integer> passed = new ArrayList<>();
+        ArrayList<Integer> failed = new ArrayList<>();
+        Iterator<Row> iterator = sheet.rowIterator();
+        iterator.next();
+        while (iterator.hasNext()) {
+            try {
+                Row row = iterator.next();
+                HSSFCell cell = (HSSFCell) row.getCell(0);
+                transactions.add(cell.getStringCellValue());
+                cell = (HSSFCell) row.getCell(1);
+                passed.add(Integer.parseInt(cell.getStringCellValue()));
+                cell = (HSSFCell) row.getCell(2);
+                failed.add(Integer.parseInt(cell.getStringCellValue()));
+            } catch (NumberFormatException e) { }
+        }
+        for (int i = 0; i < transactions.size() - 2; i++) {
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(passed.get(i));
+            list.add(failed.get(i));
+            excelSheet.put(transactions.get(i), list);
+        }
+
+        return excelSheet;
+    }
 }

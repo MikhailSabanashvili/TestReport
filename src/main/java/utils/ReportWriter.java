@@ -35,6 +35,10 @@ public class ReportWriter {
         _name1.setCellValue("AVG");
         Cell _name2 = firstRow.createCell(2);
         _name2.setCellValue("90Perc");
+        Cell _name3 = firstRow.createCell(3);
+        _name3.setCellValue("Pass");
+        Cell _name4 = firstRow.createCell(4);
+        _name4.setCellValue("Fail");
 
         for (int i = 1; i < report.getTransactions().size(); i++) {
             Row row = sheet.createRow(i);
@@ -44,6 +48,10 @@ public class ReportWriter {
             name1.setCellValue(report.getTransactions().get(i).getAvg());
             Cell name2 = row.createCell(2);
             name2.setCellValue(report.getTransactions().get(i).getPercentile());
+            Cell name3 = row.createCell(3);
+            name3.setCellValue(report.getTransactions().get(i).getPass());
+            Cell name4 = row.createCell(4);
+            name4.setCellValue(report.getTransactions().get(i).getFail());
         }
 
         try {
