@@ -7,7 +7,7 @@ import java.util.*;
 public class Report {
     private ArrayList<Transaction> transactions;
 
-    public Report(TreeMap<String, Double> avgTree, TreeMap<String, Double> percentileTree, TreeMap<String, ArrayList<Integer>> transact) {
+    public Report(TreeMap<String, Double> avgTree, TreeMap<String, Double> percentileTree, TreeMap<String, ArrayList<Integer>> transact) throws Exception {
         this.transactions = new ArrayList<>();
         Iterator<Map.Entry<String, Double>> iteratorAvg = avgTree.entrySet().iterator();
         Iterator<Map.Entry<String, Double>> iteratorPerc = percentileTree.entrySet().iterator();
@@ -23,7 +23,7 @@ public class Report {
                 transactions.add(new Transaction(iteratorAvg.next().getValue(), entry.getValue(), entry.getKey(),
                         entry1.getValue().get(0), entry1.getValue().get(1)));
             } else {
-                System.out.println("Рассинхронизация обхода");
+                throw new Exception("Рассинхронизация обхода коллекций");
             }
         }
     }

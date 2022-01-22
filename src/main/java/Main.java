@@ -9,7 +9,7 @@ import java.util.TreeMap;
 
 public class Main {
     @SuppressWarnings("unchecked")
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String path = "C:\\Users\\USER\\Desktop\\";
         HSSFWorkbook workbook4 = XlsReader.loadBook(path + "Report4.xls");
         HSSFWorkbook workbook2 = XlsReader.loadBook(path + "Report2.xls");
