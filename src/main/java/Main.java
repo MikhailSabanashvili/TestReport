@@ -19,14 +19,12 @@ public class Main {
 
         //собираем мапу из названий колонок
         HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
-        //HashMap<Integer, String> nameCols1 = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
 
         //парсинг эксельника в коллекцию
         HashMap<String, ArrayList<Double>> excelSheet = MapCreator.createExcelSheetHashMap(sheet4, nameCols, new HashMap<>());
         HashMap<String, ArrayList<Integer>> excelSheet1 = MapCreator.createExcelSheetHM(sheet2, new HashMap<>());
 
         //удаляем мэйновые транзакции
-        //excelSheet = CollectionHandler.deleteMainTransaction(excelSheet);
         excelSheet = (HashMap<String, ArrayList<Double>>) CollectionHandler.deleteMainTransaction(excelSheet);
         excelSheet1 = (HashMap<String, ArrayList<Integer>>) CollectionHandler.deleteMainTransaction(excelSheet1);
 
