@@ -21,25 +21,25 @@ public class Main {
         HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
 
         //парсинг эксельника в коллекцию
-        HashMap<String, ArrayList<Double>> excelSheet = MapCreator.createExcelSheetHashMap(sheet4, nameCols, new HashMap<>());
-        HashMap<String, ArrayList<Integer>> excelSheet1 = MapCreator.createExcelSheetHM(sheet2, new HashMap<>());
+        HashMap<String, ArrayList<Double>> excelSheet4 = MapCreator.createExcelSheetHashMapForReports4(sheet4, nameCols, new HashMap<>());
+        HashMap<String, ArrayList<Integer>> excelSheet2 = MapCreator.createExcelSheetHashMapForReports2(sheet2, new HashMap<>());
 
         System.out.println();
 
         //удаляем мэйновые транзакции
-        excelSheet = (HashMap<String, ArrayList<Double>>) CollectionHandler.deleteMainTransaction(excelSheet);
-        excelSheet1 = (HashMap<String, ArrayList<Integer>>) CollectionHandler.deleteMainTransaction(excelSheet1);
+        excelSheet4 = (HashMap<String, ArrayList<Double>>) CollectionHandler.deleteMainTransaction(excelSheet4);
+        excelSheet2 = (HashMap<String, ArrayList<Integer>>) CollectionHandler.deleteMainTransaction(excelSheet2);
 
         //считаем avg
-        HashMap<String, Double> avgMap = CalculateTransaction.calculateAvg(excelSheet);
+        HashMap<String, Double> avgMap = CalculateTransaction.calculateAvg(excelSheet4);
 
         //считаем 90Perc
-        HashMap<String, Double> percentileMap = CalculateTransaction.calculate90Perc(excelSheet);
+        HashMap<String, Double> percentileMap = CalculateTransaction.calculate90Perc(excelSheet4);
 
         //сортировка
         TreeMap<String, Double> avgTree = (TreeMap<String, Double>) CollectionHandler.sortMap(avgMap);
         TreeMap<String, Double> percentileTree = (TreeMap<String, Double>) CollectionHandler.sortMap(percentileMap);
-        TreeMap<String, ArrayList<Integer>> transactions = (TreeMap<String, ArrayList<Integer>>) CollectionHandler.sortMap(excelSheet1);
+        TreeMap<String, ArrayList<Integer>> transactions = (TreeMap<String, ArrayList<Integer>>) CollectionHandler.sortMap(excelSheet2);
 
         //упаковываем все расчеты в объект
         Report report = new Report(avgTree, percentileTree, transactions);

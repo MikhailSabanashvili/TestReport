@@ -21,7 +21,7 @@ public class MapCreator {
         return CollectionHandler.deleteEmptyCols(nameCols);
     }
 
-    public static HashMap<String, ArrayList<Double>> createExcelSheetHashMap(HSSFSheet sheet, HashMap<Integer, String> nameCols, HashMap<String, ArrayList<Double>> excelSheet) {
+    public static HashMap<String, ArrayList<Double>> createExcelSheetHashMapForReports4(HSSFSheet sheet, HashMap<Integer, String> nameCols, HashMap<String, ArrayList<Double>> excelSheet) {
         for (int col = 0; col < nameCols.size(); col++) {
             Iterator<Row> iterator = sheet.rowIterator();
             ArrayList<Double> cells = new ArrayList<>();
@@ -39,7 +39,7 @@ public class MapCreator {
         return excelSheet;
     }
 
-    public static HashMap<String, ArrayList<Integer>> createExcelSheetHM(HSSFSheet sheet, HashMap<String, ArrayList<Integer>> excelSheet) {
+    public static HashMap<String, ArrayList<Integer>> createExcelSheetHashMapForReports2(HSSFSheet sheet, HashMap<String, ArrayList<Integer>> excelSheet) {
         ArrayList<String> transactions = new ArrayList<>();
         ArrayList<Integer> passed = new ArrayList<>();
         ArrayList<Integer> failed = new ArrayList<>();
