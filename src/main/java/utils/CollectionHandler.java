@@ -1,21 +1,11 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class CollectionHandler {
-    public static HashMap<String, ArrayList<Double>> deleteMainTransaction(HashMap<String, ArrayList<Double>> excelSheet) {
-        return (HashMap<String, ArrayList<Double>>) excelSheet.entrySet().stream()
-                .filter(s -> !(s.getKey().contains("MAIN")))
-                .filter(s -> !(s.getKey().contains("Percent")))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-    }
-
-    public static HashMap<String, ArrayList<Integer>> deleteMainT(HashMap<String, ArrayList<Integer>> excelSheet) {
-        return (HashMap<String, ArrayList<Integer>>) excelSheet.entrySet().stream()
+    public static Map<String, ?> deleteMainTransaction(HashMap<String, ?> excelSheet) {
+        return  excelSheet.entrySet().stream()
                 .filter(s -> !s.getKey().contains("MAIN"))
                 .filter(s -> !(s.getKey().contains("Percent")))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
