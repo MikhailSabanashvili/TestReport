@@ -11,11 +11,11 @@ public class Main {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         String path = "C:\\Users\\USER\\Desktop\\";
-        HSSFWorkbook workbook = XlsReader.loadBook(path + "Report4.xls");
-        HSSFWorkbook workbook1 = XlsReader.loadBook(path + "Report2.xls");
+        HSSFWorkbook workbook4 = XlsReader.loadBook(path + "Report4.xls");
+        HSSFWorkbook workbook2 = XlsReader.loadBook(path + "Report2.xls");
 
-        HSSFSheet sheet4= workbook.getSheetAt(0);
-        HSSFSheet sheet2= workbook1.getSheetAt(0);
+        HSSFSheet sheet4= workbook4.getSheetAt(0);
+        HSSFSheet sheet2= workbook2.getSheetAt(0);
 
         //собираем мапу из названий колонок
         HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
