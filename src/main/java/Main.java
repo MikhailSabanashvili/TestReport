@@ -21,8 +21,10 @@ public class Main {
         HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
 
         //парсинг эксельника в коллекцию
-        HashMap<String, ArrayList<Double>> excelSheet4 = MapCreator.createExcelSheetHashMapForReports4(sheet4, nameCols, new HashMap<>());
-        HashMap<String, ArrayList<Integer>> excelSheet2 = MapCreator.createExcelSheetHashMapForReports2(sheet2, new HashMap<>());
+        HashMap<String, ArrayList<Double>> excelSheet4 =
+                MapCreator.createExcelSheetHashMapForReports4(sheet4, nameCols, new HashMap<>());
+        HashMap<String, ArrayList<Integer>> excelSheet2 =
+                MapCreator.createExcelSheetHashMapForReports2(sheet2, new HashMap<>());
 
         System.out.println();
 
@@ -39,7 +41,8 @@ public class Main {
         //сортировка
         TreeMap<String, Double> avgTree = (TreeMap<String, Double>) CollectionHandler.sortMap(avgMap);
         TreeMap<String, Double> percentileTree = (TreeMap<String, Double>) CollectionHandler.sortMap(percentileMap);
-        TreeMap<String, ArrayList<Integer>> transactions = (TreeMap<String, ArrayList<Integer>>) CollectionHandler.sortMap(excelSheet2);
+        TreeMap<String, ArrayList<Integer>> transactions =
+                (TreeMap<String, ArrayList<Integer>>) CollectionHandler.sortMap(excelSheet2);
 
         //упаковываем все расчеты в объект
         Report report = new Report(avgTree, percentileTree, transactions);

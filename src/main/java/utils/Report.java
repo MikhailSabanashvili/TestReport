@@ -20,7 +20,8 @@ public class Report {
             }
             Map.Entry<String, ArrayList<Integer>> entry1 = iteratorTransact.next();
             if(entry.getKey().equals(entry1.getKey())) {
-                transactions.add(new Transaction(iteratorAvg.next().getValue(), entry.getValue(), entry.getKey(), entry1.getValue().get(0), entry1.getValue().get(1)));
+                transactions.add(new Transaction(iteratorAvg.next().getValue(), entry.getValue(), entry.getKey(),
+                        entry1.getValue().get(0), entry1.getValue().get(1)));
             } else {
                 System.out.println("Рассинхронизация обхода");
             }
