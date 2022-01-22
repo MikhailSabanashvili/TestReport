@@ -24,6 +24,8 @@ public class Main {
         HashMap<String, ArrayList<Double>> excelSheet = MapCreator.createExcelSheetHashMap(sheet4, nameCols, new HashMap<>());
         HashMap<String, ArrayList<Integer>> excelSheet1 = MapCreator.createExcelSheetHM(sheet2, new HashMap<>());
 
+        System.out.println();
+
         //удаляем мэйновые транзакции
         excelSheet = (HashMap<String, ArrayList<Double>>) CollectionHandler.deleteMainTransaction(excelSheet);
         excelSheet1 = (HashMap<String, ArrayList<Integer>>) CollectionHandler.deleteMainTransaction(excelSheet1);

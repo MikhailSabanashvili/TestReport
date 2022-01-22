@@ -6,9 +6,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 public class MapCreator {
     public static HashMap<Integer, String> createTransactionNameMap(HSSFSheet sheet, HashMap<Integer, String> nameCols) {
