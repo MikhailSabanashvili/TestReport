@@ -14,16 +14,16 @@ public class Main {
         HSSFWorkbook workbook = XlsReader.loadBook(path + "Report4.xls");
         HSSFWorkbook workbook1 = XlsReader.loadBook(path + "Report2.xls");
 
-        HSSFSheet sheet2= workbook.getSheetAt(0);
-        HSSFSheet sheet4= workbook1.getSheetAt(0);
+        HSSFSheet sheet4= workbook.getSheetAt(0);
+        HSSFSheet sheet2= workbook1.getSheetAt(0);
 
         //собираем мапу из названий колонок
-        HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet2, new HashMap<>());
+        HashMap<Integer, String> nameCols = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
         //HashMap<Integer, String> nameCols1 = MapCreator.createTransactionNameMap(sheet4, new HashMap<>());
 
         //парсинг эксельника в коллекцию
-        HashMap<String, ArrayList<Double>> excelSheet = MapCreator.createExcelSheetHashMap(sheet2, nameCols, new HashMap<>());
-        HashMap<String, ArrayList<Integer>> excelSheet1 = MapCreator.createExcelSheetHM(sheet4, new HashMap<>());
+        HashMap<String, ArrayList<Double>> excelSheet = MapCreator.createExcelSheetHashMap(sheet4, nameCols, new HashMap<>());
+        HashMap<String, ArrayList<Integer>> excelSheet1 = MapCreator.createExcelSheetHM(sheet2, new HashMap<>());
 
         //удаляем мэйновые транзакции
         //excelSheet = CollectionHandler.deleteMainTransaction(excelSheet);
