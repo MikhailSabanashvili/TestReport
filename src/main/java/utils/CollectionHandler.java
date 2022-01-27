@@ -8,6 +8,7 @@ public class CollectionHandler {
         return  excelSheet.entrySet().stream()
                 .filter(s -> !s.getKey().contains("MAIN"))
                 .filter(s -> !(s.getKey().contains("Percent")))
+                .filter(s -> !(s.getKey().contains("vuser")))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
