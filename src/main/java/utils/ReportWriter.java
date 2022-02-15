@@ -36,9 +36,9 @@ public class ReportWriter {
         Cell _name2 = firstRow.createCell(2);
         _name2.setCellValue("90Perc");
         Cell _name3 = firstRow.createCell(3);
-        _name3.setCellValue("Pass");
+        _name3.setCellValue("Fail");
         Cell _name4 = firstRow.createCell(4);
-        _name4.setCellValue("Fail");
+        _name4.setCellValue("Pass");
 
         for (int i = 1; i < report.getTransactions().size(); i++) {
             Row row = sheet.createRow(i);
